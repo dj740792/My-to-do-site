@@ -1,0 +1,55 @@
+*{
+    font-family: Stack Sans Headline;
+}
+
+@import "tailwindcss";
+
+  :root {
+            --grid-size: 64px;
+            --line-color: rgba(0, 0, 0, 0.06);
+            /* slightly darker as requested */
+            --paper: #fbfbfb;
+            --vignette-strength: 0.35;
+        }
+
+        /* Notebook-style grid + vignette */
+        .notebook-bg {
+            min-height: 100vh;
+            background-color: var(--paper);
+            background-image:
+                repeating-linear-gradient(to right, var(--line-color) 0 1px, transparent 1px var(--grid-size)),
+                repeating-linear-gradient(to bottom, var(--line-color) 0 1px, transparent 1px var(--grid-size));
+            background-attachment: fixed;
+        }
+
+        .notebook-bg::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(circle at center,
+                    rgba(255, 255, 255, 0) 40%,
+                    rgba(255, 255, 255, var(--vignette-strength)) 100%);
+            mix-blend-mode: lighten;
+            z-index: 0;
+        }
+
+        /* container card sits above the background */
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(6px);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* small helper for truncated todo text */
+        .todo-text {
+            word-break: break-word;
+        }
+
+        /* mobile spacing tune */
+        @media (max-width:640px) {
+            :root {
+                --grid-size: 40px;
+            }
+        }

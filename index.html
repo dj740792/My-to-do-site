@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dhrxv TODO site</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Momo+Trust+Display&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Stack+Sans+Headline:wght@200..700&display=swap');
+    </style>
+</head>
+
+<body class="notebook-bg">
+
+    <!-- Header -->
+    <header class="flex justify-between items-center max-w-5xl mx-auto p-4">
+        <div
+            class="logo text-black text-lg font-medium p-3 rounded-full hover:scale-110 duration-300">
+            DHRXV.ui
+        </div>
+
+        <div class="flex items-center gap-2">
+            <!-- Header Get Started -->
+            <button onclick="document.getElementById('todoSection').scrollIntoView({ behavior: 'smooth' })"
+                class="btn bg-black text-white px-4 py-2 rounded-md shadow-md hover:scale-105 transition">
+                Get started
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="hero" class="text-center py-24 px-6 max-w-4xl mx-auto">
+        <div class="text">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold text-black leading-tight mb-4">
+                YOUR DAILY TASKS <br> ORGANIZED EFFORTLESSLY
+            </h1>
+            <p class="py-4 text-gray-700">
+                This website helps you manage your daily tasks and track progress &#8594; all in a simple and fast
+                visual experience.
+            </p>
+        </div>
+
+        <button onclick="document.getElementById('todoSection').scrollIntoView({behavior: 'smooth'})"
+            class="mt-6 btn bg-black text-white px-6 py-3 rounded-lg shadow-md hover:scale-105 transition">
+            Get started
+        </button>
+    </section>
+
+    <!-- MainTodo app -->
+    <!-- Main / Todo app (fixed IDs & classes) -->
+    <main id="todoSection" class="max-w-3xl mx-auto p-6">
+        <div class="card rounded-2xl shadow-md p-3">
+            <div class="flex gap-3 items-center">
+                <input id="taskInput"
+                    class="flex-1 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-600 placeholder-gray-400"
+                    placeholder="Enter your task and press Add or Enter..." type="text" />
+                <button id="addBtn"
+                    class="bg-black text-white px-5 py-3 rounded-lg hover:scale-105 transition">Add</button>
+            </div>
+
+            <!-- Filters -->
+            <div
+                class="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-4 text-sm text-gray-600 gap-3">
+                <div class="flex gap-2 items-center">
+                    <button data-filter="all" class="filter-btn px-3 py-1 rounded-md bg-black text-white">All</button>
+                    <button data-filter="active"
+                        class="filter-btn px-3 py-1 rounded-md hover:bg-gray-100">Active</button>
+                    <button data-filter="completed"
+                        class="filter-btn px-3 py-1 rounded-md hover:bg-gray-100">Completed</button>
+                </div>
+                <div id="count" class="opacity-90">0 tasks</div>
+            </div>
+
+            <!-- todo list -->
+            <ul id="todoList" class="mt-4 space-y-3"></ul>
+
+            <!-- empty state -->
+            <p id="empty" class="mt-4 text-center text-gray-800">No tasks yet — add one above ✨</p>
+        </div>
+    </main>
+
+
+    <footer class="max-w-5xl mx-auto p-6 text-center text-md text-gray-600">
+        Built with ♥ by Dhruv&#9996.
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
